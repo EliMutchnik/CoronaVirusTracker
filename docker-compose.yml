@@ -1,6 +1,7 @@
 version: '3'
 services:
   corona-tracker:
+    container_name: corona-tracker
     build: .
     image: corona:latest
     ports:
