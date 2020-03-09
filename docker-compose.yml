@@ -1,0 +1,7 @@
+version: '3'
+services:
+  corona-tracker:
+    build: .
+    image: corona:latest
+    ports:
+      - "5000:5000"

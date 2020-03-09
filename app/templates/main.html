@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Corona Virus Tracker</title>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Data Tables -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+    <style>
+        h1 {
+            padding-bottom: 10px;
+        }
+
+        .copyrights {
+            font-size: small;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Corona Virus Tracker</h1>
+
+        <table id="table" class="display">
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th>Confirmed Cases</th>
+                    <th>Deaths</th>
+                    <th>Recovered</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for country in countries %}
+                <tr>
+                    <td>{{ country.name }}</td>
+                    <td>{{ country.confirmed }}</td>
+                    <td>{{ country.deaths }}</td>
+                    <td>{{ country.recovered }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="text-center">
+            <p class="text-muted copyrights">
+                By <a href="https://github.com/EliMutchnik/">Eli Mutchnik</a> ©
+            </p>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable({
+                "ordering": false
+            });
+        });
+    </script>
+</body>
+</html>
